@@ -1,0 +1,56 @@
+service: solvimm-teste
+frameworkVersion: '2'
+custom:
+  bucket: ${env:BUCKET}
+provider:
+  name: aws
+  runtime: nodejs12.x
+  BUCKET: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - s3:GetObject
+      - s3:ListBucket
+      - dynamodb:DescribeTable
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:GetItem
+      - dynamodb:PutItem
+      Resource: ["arn:aws:s3:::${env:BUCKET}", "arn:aws:s3:::${env:BUCKET}/*", "arn:aws:dynamodb:${env:DYNAMODB_REGION}:${env:ACCOUNT_ID}:table/${env:DYNAMODB_TABLE}"]
+functions:
+  extractMetadata:
+    handler: handler.extractMetadata
+    events:
+      - s3:
+          bucket: ${env:BUCKET}
+          event: s3:ObjectCreated:*
+  getMetadata:
+    handler: handler.getMetadata
+    events:
+      - http:
+          path: get-metadata/{s3objectkey}
+          method: get
+          request:
+            parameters:
+              paths:
+                s3objectkey: true
+  getImage:
+    handler: handler.getImage
+    events:
+      - http:
+          path: get-image/{s3objectkey}
+          method: get
+          request:
+            parameters:
+              paths:
+                s3objectkey: true
+  infoImages:
+    handler: handler.infoImages
+    events:
+      - http:
+          path: info-images
+          method: get
+resources:
+  - ${file(Resources/dynamo-db.yml)}
+plugins:
+  - serverless-dotenv-plugin

@@ -1,0 +1,14 @@
+Resources:
+  S3Metadata:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: s3-metadata
+      AttributeDefinitions:
+        - AttributeName: s3objectkey
+          AttributeType: S
+      KeySchema:
+        - AttributeName: s3objectkey
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

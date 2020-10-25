@@ -1,0 +1,19 @@
+{
+  "name": "teste-solvimm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.776.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^3.1.0"
+  }
+}
