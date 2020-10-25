@@ -1,13 +1,13 @@
 {
   "name": "teste-solvimm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Challenge created for the Solvimm Backend Developer job opportunity.",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Oliveira",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.776.0",
