@@ -2,6 +2,7 @@
 
 Challenge created for the Solvimm Backend Developer job opportunity.
 
+
 ![alt text](https://raw.githubusercontent.com/solvimm/serverless-challenge/master/Architecture.png)
 
 # Tecnologies
@@ -30,12 +31,12 @@ These functions can be found in the ```handler.js``` file, and are used to retri
 
 This Lambda Function is called automatically when an image is uploaded to the specified S3 Bucket. It gets the image's info and upload It to DynamoDB.
 
-###### Possible Status Codes
+##### Possible Status Codes
 
 * 201 Created
 * 500 Internal Server Error
 
-###### On Success
+##### On Success
 
 Should return a Status Code of 201.
 
@@ -43,13 +44,13 @@ Should return a Status Code of 201.
 
 This Lambda Function works alongside the API Gateway, which is used to build Serverless HTTP Endpoints. When the gateway receives a GET request at the ```/get-metadata/:s3objectkey``` endpoint, It goes into DynamoDB and retrieves the information of an uploaded image with the informed ```s3objectkey``` that was previously stored.
 
-###### Possible Status Codes
+##### Possible Status Codes
 
 * 200 OK
 * 404 Not Found
 * 500 Internal Server Error
 
-###### On Success
+##### On Success
 
 Should return a Status Code of 200 and a response body containing a JSON string with the following format:
 
@@ -65,13 +66,13 @@ Should return a Status Code of 200 and a response body containing a JSON string 
 
 This Lambda Function is called after a GET request to the ```/get-image/:s3objectkey``` endpoint. It goes into the Amazon S3 bucket and looks for a image with the informed ```s3objectkey```, returning It in Base64 encoding.
 
-###### Possible Status Codes
+##### Possible Status Codes
 
 * 200 OK
 * 404 Not Found
 * 500 Internal Server Error
 
-###### On Success
+##### On Success
 
 Should return a Status Code of 200 and a response body containing a base64 encoded string.
 
@@ -79,12 +80,12 @@ Should return a Status Code of 200 and a response body containing a base64 encod
 
 This Lambda Function is called after a GET request to the ```/info-images``` endpoint. It goes into DynamoDB and uses a Scan to retrieve information on all images. Then It calculates which of the stored images is the biggest (in file size), which is the smallest and returns this information alongside a list of all the image formats stored in the database and a counter of how many images of each format there are in total.
 
-###### Possible Status Codes
+##### Possible Status Codes
 
 * 200 OK
 * 500 Internal Server Error
 
-###### On Success
+##### On Success
 
 Should return a Status Code of 200 and a response body containing a JSON string with the following format:
 
@@ -110,4 +111,4 @@ Next, install the Serverless Framework npm package If you don't already have It.
 
 When done, run the ```serverless deploy``` command in the root folder where the ```serverless.yml``` is located and wait for It to finish deploying the project.
 
-That's It, now you can go ahead and test all the funcionalities.
+That's It, now you can go ahead and test all the funcionalities! :+1:
