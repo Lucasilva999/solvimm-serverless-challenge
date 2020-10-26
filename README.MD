@@ -6,7 +6,7 @@ Challenge created for the Solvimm Backend Developer job opportunity.
 
 ![alt text](https://raw.githubusercontent.com/solvimm/serverless-challenge/master/Architecture.png)
 
-# Tecnologies
+# Technologies
 
 The following technologies were used in the development of this project:
 
