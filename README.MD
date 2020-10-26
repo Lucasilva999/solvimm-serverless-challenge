@@ -108,8 +108,8 @@ Should return a status code of 200 and a response body containing a JSON string 
 In order to run the project you should go into the ```.env.example``` file and fill the environment variables with neccessary information, then rename the file to ```.env```.
 The project uses a plugin called ```serverless-dotenv-plugin``` to get all environment variables from the ```.env``` file and pass It to the ```serverless.yml``` file, which then is used to deploy to AWS everything that is neccessary for you to access the endpoints and Lambdas.
 
-Next, install the Serverless Framework npm package If you don't already have It. You can use the ```npm i -g serverless``` to install It globally.
+Next, install the Serverless Framework npm package If you don't already have It. You can use the ```npm i -g serverless``` to install It globally. Also run ```npm i``` in the root folder to install the project dependencies.
 
-When done, run the ```serverless deploy``` command in the root folder where the ```serverless.yml``` is located and wait for It to finish deploying the project.
+When done, run the ```serverless deploy``` command while still at the root folder where the ```serverless.yml``` is located and wait for It to finish deploying the project.
 
 That's It, now you can go ahead and test all the funcionalities! :+1:
